@@ -7828,7 +7828,7 @@ h1, h2, h3, h4, h5, h6 {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
@@ -7870,11 +7870,12 @@ h1, h2, h3, h4, h5, h6 {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">'Peppers.png'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'type:'</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Datatype:'</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'dimension:'</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7889,6 +7890,7 @@ h1, h2, h3, h4, h5, h6 {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>type: &lt;class 'numpy.ndarray'&gt;
+Datatype: uint8
 dimension: (1024, 1536, 3)
 </pre>
 </div>
@@ -7906,6 +7908,8 @@ dimension: (1024, 1536, 3)
 با دستور imread می‌توانیم تصویر را بخوانیم.
 <br/>
 تصویر در قالب یک N-dimensional Array خوانده می‌شود که یک آرایه‌ی NumPy چند بعدی از مقادیر است. 
+<br/>
+هر کدام از داده‌های درون آرایه نیز یک unint8: 8 bit unsigned int است. یعنی عدد بدون علامت 8 بیتی که مقادیر 0 تا 255 را شامل می‌شود.
 <br/>
 دستور shape تعداد خانه‌های هر بعد از آرایه را نمایش می‌دهد. این مقادیر به این معنی است که تصویر ما دارای طول و عرض 1024 در 1536 پیکسلی است و 3 کانال رنگی RGB دارد.
 <br/>
@@ -8231,7 +8235,7 @@ Blue:	 min: 0 	max: 229
     <br/>
 هر یک از کانال‌ها HSV به طور جداگانه رسم شده‌اند. مانند تصاویر قبلی، نقاط تیره تر به معنی مقدار کمتر و نقاط روشن تر مقادیر بیشتر هستند.
     <br/>
-مثلا نقاط روی فلفل‌ها که نقاط رنگی تصویر هستند، دارای Saturation بالا هستند. سایر نقاط تصویر که غالبا خاکستری‌اند، مقدار Sqturation پایین و نزدیک به صفری دارند که با تصویر اصلی نیز همخوانی دارد.
+مثلا نقاط روی فلفل‌ها که نقاط رنگی تصویر هستند، دارای Saturation بالا هستند. سایر نقاط تصویر که غالبا خاکستری‌اند، مقدار Saturation پایین و نزدیک به صفری دارند که با تصویر اصلی نیز همخوانی دارد.
     </div>
 </div>
 </div>
@@ -8412,7 +8416,7 @@ Blue:	 min: 0 	max: 229
 <br/>
 همانطور که مشخص است در تصویر سمت راست نیز که تقریبا بهترین تشخیص را دارد، هنوز هم ناحیه‌هایی از سبزهای تصویر وجود دارند که ماسک نشده‌اند و ناحیه‌هایی هم وجود دارند که اضافی ماسک شده‌اند.
 <br/>
-مثلا قسمت‌هایی از فلفل‌های سبز رنگ که خیلی تیره و نزدیک به سیاه بوده‌اند انتخاب نشده‌اند و از طرفی قسمت‌هایی از پس زمینه‌ی تصویر، چون در بازه‌ی انتخابی ما قرار داشته‌اند انتخاب شده‌اند.
+مثلا قسمت‌هایی از فلفل‌های سبز رنگ که خیلی تیره و نزدیک به سیاه بوده‌اند انتخاب نشده‌اند. از طرفی قسمت‌هایی از پس زمینه‌ی تصویر و در یکی از بازه‌ها حتی بخشی از فلفل زرد رنگ نیز چون بازه‌ی ابتدایی Hue پایین بوده به اشتباه انتخاب شده است.
     <br/>
 همچنین برای درک راحت تر نواحی انتخاب شده، تصاویر بصورت سیاه و سفید رسم شده‌اند.
     <br/>
@@ -8936,7 +8940,7 @@ OpneCV تابع آماده‌ی اصلاح نور تصویر به روش Histogr
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="direction:rtl;text-align:right">
-واضح است که کاهش روشنایی تصویر، بر جداسازی تمیزتر رنگ‌های اثر منفی می‌گذارد چراکه مقادیر پیکسل‌ها را به یکدیگر نزدیک‌تر می‌کند.
+کاهش روشنایی تصویر فقط بر کانال V اثر می‌گذارد و کانال‌های H و S بدون تغییر می‌مانند. بنابراین در جداسازی رنگ سبز، فقط سبزهای خیلی تیره ممکن است تحت تاثیر قرار بگیرند و مابقی رنگ‌ها هنوز قابل تشخیص می‌مانند.
     <br/>
 اما در خصوص تصاویر بهبود یافته، تصویری که با روش Histogram Equalization اصلاح شده نتیجه‌ی بدتری دارد. در این تصویر برخی نقاط سبز رنگ به سمت سیاهی رفته و انتخاب نشده‌اند.
     <br/>
